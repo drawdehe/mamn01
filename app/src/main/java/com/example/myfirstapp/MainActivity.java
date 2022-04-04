@@ -1,14 +1,11 @@
 package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +13,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when the user taps the Send button */
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+    /** Called when user taps the accelerometer button **/
+    public void enterAccelerometer(View view){
+        // Enter code to enter accelerometer activity
+        Intent intent = new Intent(this, AccelerometerActivity.class);
         startActivity(intent);
     }
+
+    /** Called when user taps the Compass button **/
+    public void enterCompass(View view){
+        Intent intent = new Intent(this, CompassActivity.class);
+        startActivity(intent);
+    }
+
 }
